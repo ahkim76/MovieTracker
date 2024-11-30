@@ -1,5 +1,6 @@
 import express from 'express';
 import bodyParser from 'body-parser';
+import { Movie } from './movies';
 
 const app = express();
 
@@ -9,10 +10,24 @@ app.use(bodyParser.json());
 app.use('/public', express.static('public'));
 
 
-// Call movies api to retrieve movie information
-app.get('/movies/:id', (req, res) => {
-    res.status(500).send("Needs to be implemented");
+// Call movies api to retrieve information about a specifc movie
+app.get('/movies/:id', async (req, res) => {
+    let id = req.params.id;
+    let movie = new Movie(id);
+    
+    // await errors?
+    let response = await movie.fetchMovie();
+    if (response === "True") {
+        res.status(200).send(movie.data);
+    } else {
+        res.status(404).send("Movie with id " + id + " not found.");
+    }
 });
+
+// Call movies api to retrieve list of movies given title
+app.get('/movies/:query', async (req, res) => {
+    res.status(500).send("Needs to be implemented");
+})
 
 // Fetch list of movies from database
 app.get('/movies', (req, res) => {
