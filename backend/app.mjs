@@ -53,8 +53,25 @@ app.get("/movies", async (req, res) => {
 });
 
 // Add movie to movie list
-app.post("/movies", (req, res) => {
-  res.status(500).send("Needs to be implemented");
+app.post("/movies", async (req, res) => {
+  let id = req.body.id;
+
+  let movies = req.cookies.movies;
+
+  if (movies != null) {
+    movies = await movies.json();
+  } else {
+    movies = [];
+  }
+
+  movies.push(id);
+
+  res.status(201)
+    .cookie("movies", movies, {
+      // expires in a month from call
+      maxAge: 30 * 86400000
+    })
+    .send("Added movie with id " + id);
 });
 
 // Modify movie status? (watched? etc.) optional
@@ -63,8 +80,36 @@ app.put("/movies/:id", (req, res) => {
 });
 
 // Delete movie from movie list
-app.delete("/movies:id", (req, res) => {
-  res.status(500).send("Needs to be implemented");
+app.delete("/movies:id", async (req, res) => {
+  let id = req.body.id;
+
+  let movies = req.cookies.movies;
+
+  if (movies != null) {
+    movies = await movies.json();
+
+    let found = false;
+    for (let i = 0; i < movies.length; i++) {
+      if (movies[i] == id) {
+        movies.splice(i, 1);
+        found = true;
+        break;
+      }
+    }
+
+    if (found) {
+      res.status(201)
+        .cookie("movies", movies, {
+          // expires in a month from call
+          maxAge: 30 * 86400000
+        })
+        .send("Removed movie with id " + id);
+    } else {
+      res.status(404).send("Did not find movie with id " + id);
+    }
+  } else {
+    res.status(404).send("Movie list is empty");
+  }
 });
 
 app.listen(port, () => {
