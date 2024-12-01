@@ -2,6 +2,21 @@
   text-align: center;
 }
 
+#root {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  width: 100%;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  width: 100%;
+}
+
 .App-logo {
   height: 40vmin;
   pointer-events: none;
@@ -35,4 +50,53 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+.sidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: linear-gradient(135deg, #bac8e0, #6a85b6);
+  padding: 2rem 2.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  width: 200px;
+  height: 100vh;
+  padding: 2rem;
+  z-index: 1000;
+}
+
+.sidebar li {
+  list-style: none;
+}
+
+.sidebar a {
+  text-decoration: none;
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #333;
+  background-color: #fff;
+  padding: 10px 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+}
+.sidebar a:hover {
+  background-color: #6a85b6;
+  color: #ffffff;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  transform: translateY(-3px);
+}
+
+.mainContent {
+  margin-left: 250px;
+  padding: 2rem;
+}
+
+.AppLayout {
+  display: flex;
+  height: 100vh;
 }
