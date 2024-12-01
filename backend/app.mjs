@@ -16,7 +16,7 @@ app.get("/movies/:id", async (req, res) => {
 
   await movie.fetchMovie();
   if (movie.data.Response === "True") {
-    res.status(200).send(movie.data);
+    res.status(201).send(movie.data);
   } else {
     res.status(404).send("Movie with id " + id + " not found.");
   }
@@ -29,7 +29,7 @@ app.get("/movies/:title", async (req, res) => {
 
   await queriedMovies.fetchMovies();
   if (queriedMovies.data.Response === "True") {
-    res.status(200).send(queriedMovies.data);
+    res.status(201).send(queriedMovies.data);
   } else {
     res.status(404).send("No movies with title " + title + " found.");
   }
