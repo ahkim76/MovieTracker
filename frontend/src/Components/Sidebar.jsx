@@ -8,6 +8,11 @@ function Sidebar() {
           <span>Home</span>
         </NavLink>
       </li>
+      <li>
+        <NavLink to="/movie-search">
+          <span>Movie Search</span>
+        </NavLink>
+      </li>
     </ul>
   );
 }

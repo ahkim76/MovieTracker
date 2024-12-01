@@ -1,5 +1,19 @@
+import MovieList from "./MovieList";
+import { useState, useEffect, useRef } from "react";
 function MovieSearch() {
-  return <div>Movie Search</div>;
+  const [query, setQuery] = useState("");
+  const inputEl = useRef(null);
+  return (
+    <div>
+      <input
+        type="text"
+        placeholder="Search classes..."
+        value={query}
+        onChange={(e) => setQuery(e.target.value)}
+      />
+      <MovieList query={query} setQuery={setQuery} />
+    </div>
+  );
 }
 
 export default MovieSearch;
