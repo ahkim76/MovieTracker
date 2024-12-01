@@ -6,7 +6,7 @@ function MovieSearch() {
   const inputEl = useRef(null);
 
   const fetchMovies = async () => {
-    if (!query) {
+    if (!query || query.length <= 2) {
       setMovies([]);
       return;
     }
