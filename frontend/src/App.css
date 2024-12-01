@@ -67,6 +67,7 @@ body {
   height: 100vh;
   padding: 2rem;
   z-index: 1000;
+  margin: 0px;
 }
 
 .sidebar li {
