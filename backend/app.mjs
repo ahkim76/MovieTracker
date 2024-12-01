@@ -2,7 +2,10 @@ import express from "express";
 import bodyParser from "body-parser";
 import { Movie, Movies } from "./movies";
 
+let cookieParser = require('cookie-parser');
+
 const app = express();
+app.use(cookieParser());
 
 const port = 3000;
 
@@ -35,12 +38,18 @@ app.get("/movies/:title", async (req, res) => {
   }
 });
 
-// Fetch list of movies from database
-app.get("/movies", (req, res) => {
-  res.status(500).send("Needs to be implemented");
+// Fetch list of movies
+app.get("/movies", async (req, res) => {
+  let movies = req.cookies.movies;
+
+  if (movies != null) {
+    movies = await movies.json();
+  }
+
+  res.status(201).send(movies);
 });
 
-// Add movie to database
+// Add movie to movie list
 app.post("/movies", (req, res) => {
   res.status(500).send("Needs to be implemented");
 });
@@ -50,7 +59,7 @@ app.put("/movies/:id", (req, res) => {
   res.status(500).send("Needs to be implemented");
 });
 
-// Delete movie from database
+// Delete movie from movie list
 app.delete("/movies:id", (req, res) => {
   res.status(500).send("Needs to be implemented");
 });
