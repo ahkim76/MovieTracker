@@ -74,11 +74,6 @@ app.post("/movies", async (req, res) => {
     .send("Added movie with id " + id);
 });
 
-// Modify movie status? (watched? etc.) optional
-app.put("/movies/:id", (req, res) => {
-  res.status(500).send("Needs to be implemented");
-});
-
 // Delete movie from movie list
 app.delete("/movies:id", async (req, res) => {
   let id = req.body.id;
