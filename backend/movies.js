@@ -1,57 +1,53 @@
-
 export class Movie {
-    #id
-    #data
+  #id;
+  #data;
 
-    constructor(id) {
-        this.#id = id;
-        this.#data = null;
-    }
+  constructor(id) {
+    this.#id = id;
+    this.#data = null;
+  }
 
-    async fetchMovie() {
-        // fetches movie data 
-        let response = await fetch('https://www.omdbapi.com/'
-            + '?i=' + this.#id
-            + '&apikey=' + api_key);
+  async fetchMovie() {
+    // fetches movie data
+    let response = await fetch(
+      "https://www.omdbapi.com/" + "?i=" + this.#id + "&apikey=" + api_key
+    );
 
-        let movieData = await response.json();
+    let movieData = await response.json();
 
-        this.#data = movieData;
+    this.#data = movieData;
 
-        return movieData.Response;
-    }
+    return movieData.Response;
+  }
 
-    get data() {
-        return this.#data;
-    }
+  get data() {
+    return this.#data;
+  }
 }
-
 
 export class Movies {
-    #title
-    #data
-    
-    constructor(title) {
-        this.#title = title;
-    }
+  #title;
+  #data;
 
-    async fetchMovies() {
-        let response = await fetch('https://www.omdbapi.com/'
-            + '?s=' + this.#title
-            + '&apikey=' + api_key);
+  constructor(title) {
+    this.#title = title;
+  }
 
-        let moviesData = await response.json();
+  async fetchMovies() {
+    let response = await fetch(
+      "https://www.omdbapi.com/" + "?s=" + this.#title + "&apikey=" + api_key
+    );
 
-        this.#data = moviesData;
+    let moviesData = await response.json();
 
-        return moviesData.Response;
-    }
+    this.#data = moviesData;
 
-    get data() {
-        return this.#data;
-    }
+    return moviesData.Response;
+  }
 
+  get data() {
+    return this.#data;
+  }
 }
 
-
-const api_key = "";
+const api_key = "1c3326a9";

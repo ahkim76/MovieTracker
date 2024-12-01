@@ -2,7 +2,7 @@ import express from "express";
 import bodyParser from "body-parser";
 import { Movie, Movies } from "./movies";
 
-let cookieParser = require('cookie-parser');
+let cookieParser = require("cookie-parser");
 
 const app = express();
 app.use(cookieParser());
@@ -13,7 +13,7 @@ app.use(bodyParser.json());
 app.use("/public", express.static("public"));
 
 // Call movies api to retrieve information about a specifc movie
-app.get("/movies/:id", async (req, res) => {
+app.get("/movies/id/:id", async (req, res) => {
   let id = req.params.id;
   let movie = new Movie(id);
 
@@ -26,7 +26,7 @@ app.get("/movies/:id", async (req, res) => {
 });
 
 // Call movies api to retrieve list of movies given title
-app.get("/movies/:title", async (req, res) => {
+app.get("/movies/title/:title", async (req, res) => {
   let title = req.params.title;
   let queriedMovies = new Movies(title);
 
