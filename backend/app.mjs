@@ -50,8 +50,25 @@ app.get("/movies", async (req, res) => {
 });
 
 // Add movie to movie list
-app.post("/movies", (req, res) => {
-  res.status(500).send("Needs to be implemented");
+app.post("/movies", async (req, res) => {
+  let id = req.body.id;
+
+  let movies = req.cookies.movies;
+
+  if (movies != null) {
+    movies = await movies.json();
+  } else {
+    movies = [];
+  }
+
+  movies.push(id);
+
+  res.status(201)
+    .cookie("movies", movies, {
+      // expires in a month from call
+      maxAge: 30 * 86400000
+    })
+    .send("Added movie with id " + id);
 });
 
 // Modify movie status? (watched? etc.) optional
