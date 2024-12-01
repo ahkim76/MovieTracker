@@ -1,5 +1,8 @@
 .movieDiv {
-  display: flex;
+  margin: 10px 0;
+  padding: 10px;
+  background-color: #eaeaea;
+  border-radius: 5px;
 }
 
 .movieLi {
@@ -16,4 +19,34 @@
 .movieLi:hover {
   transform: translateY(-10px);
   box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+.movieImg {
+  max-width: 60%;
+  display: block;
+  height: auto;
+  border-radius: 8px;
+  margin: 0 auto;
+}
+
+.movieTitle {
+  display: block;
+  margin: 0 auto;
+  margin-bottom: 10px;
+  color: #333;
+}
+
+.movieDiv p {
+  margin: 5px 0;
+  font-size: 1rem;
+  color: #555;
+}
+
+.movieList {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+  padding: 20px;
+  background-color: #f9f9f9;
 }
