@@ -15,7 +15,6 @@ app.get('/movies/:id', async (req, res) => {
     let id = req.params.id;
     let movie = new Movie(id);
     
-    // await errors?
     let response = await movie.fetchMovie();
     if (response === "True") {
         res.status(200).send(movie.data);

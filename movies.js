@@ -11,7 +11,7 @@ export class Movie {
     async fetchMovie() {
         // fetches movie data 
         let response = await fetch('https://www.omdbapi.com/'
-            + 'i=' + this.#id
+            + '?i=' + this.#id
             + '&apikey=' + api_key);
 
         let movieData = await response.json();
@@ -37,7 +37,7 @@ export class Movies {
 
     async fetchMovies() {
         let response = await fetch('https://www.omdbapi.com/'
-            + 's=' + this.#title
+            + '?s=' + this.#title
             + '&apikey=' + api_key);
 
         let moviesData = await response.json();
