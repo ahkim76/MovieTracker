@@ -56,9 +56,15 @@ function MovieWishlist() {
     getMovies();
   }, [getMovies]);
 
+  if (getMovies.length == 0) {
+    return (
+        "Wishlist empty. Search for a movie to add to your wishlist!"
+    )
+  }
+
   return (
     <ul>
-      {movies.map((getMovies) => (
+      {getMovies.map((getMovies) => (
         <MovieCard movie={getMovies} />
       ))}
     </ul>
