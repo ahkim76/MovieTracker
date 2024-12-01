@@ -1,13 +1,16 @@
 import express from "express";
 import bodyParser from "body-parser";
-import { Movie, Movies } from "./movies";
+import { Movie, Movies } from "./movies.js";
 
-let cookieParser = require("cookie-parser");
+import cookieParser from "cookie-parser";
+import cors from "cors";
 
 const app = express();
+app.use(cors());
+
 app.use(cookieParser());
 
-const port = 3000;
+const port = 4000;
 
 app.use(bodyParser.json());
 app.use("/public", express.static("public"));
