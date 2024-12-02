@@ -15,7 +15,7 @@ function MovieWishlist() {
             console.log("Error fetching movies");
           }
       } catch (error) {
-        console.log("Error getting movies");
+        console.log("Error getting movies", error);
       }
   }
 
@@ -33,7 +33,7 @@ function MovieWishlist() {
           console.error("Error retrieving movie");
         }
       } catch (error) {
-        console.log("Error fetching movies");
+        console.log("Error fetching movie");
       }
   }
 

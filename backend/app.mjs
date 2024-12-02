@@ -47,6 +47,8 @@ app.get("/movies", async (req, res) => {
 
   if (movies != null) {
     movies = await movies.json();
+  } else {
+    movies = [];
   }
 
   res.status(201).send(movies);
