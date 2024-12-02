@@ -65,6 +65,7 @@ app.post("/movies", async (req, res) => {
   } else {
     movies = [];
   }
+  console.log(movies);
 
   movies.push(id);
 

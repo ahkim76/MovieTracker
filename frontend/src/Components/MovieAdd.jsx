@@ -3,11 +3,13 @@ function MovieAdd({ movie }) {
     try {
       const response = await fetch(`http://localhost:4000/movies`, {
         method: "POST",
-        body: JSON.stringify(id),
+        body: JSON.stringify({id}),
         headers: {
           "Content-Type": "application/json",
         },
       });
+
+      console.log("Added movie with id " + id);
     } catch (error) {
       console.log("Error adding movie");
     }
@@ -15,7 +17,7 @@ function MovieAdd({ movie }) {
 
   return (
     <div>
-      <button onClick={addMovie(movie.imdbID)}></button>
+      <button onClick={() => { addMovie('tt6710474') } }>Add to wishlist</button>
     </div>
   );
 }
