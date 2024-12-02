@@ -1,15 +1,15 @@
 function MovieAdd({ movie }) {
   const addMovie = (id) => {
-    let movies = [localStorage.getItem("movies")];
+    let movies = [localStorage.getItem("movies").split(",")];
 
     if (movies == null) {
       movies = [];
     }
+    // movies = []
 
     movies = [id, ...movies];
 
     localStorage.setItem("movies", movies);
-    console.log(localStorage.getItem("movies").split(","));
   };
 
   return (
