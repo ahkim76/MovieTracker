@@ -1,4 +1,5 @@
 import "../movies.css";
+import MovieDelete from "./MovieDelete";
 function WishlistCard({ movie }) {
   return (
     <li className="wishlistLi" key={movie.imdbID}>
@@ -9,6 +10,7 @@ function WishlistCard({ movie }) {
           alt={`${movie.Title} movie poster`}
         />
         <h3 className="wishlistTitle">{movie.Title}</h3>
+        <MovieDelete movie={movie} />
       </div>
     </li>
   );
