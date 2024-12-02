@@ -8,7 +8,7 @@ function MovieCard({ movie }) {
         <p>Year: {movie.Year}</p>
         <p>Type: {movie.Type}</p>
       </div>
-      <MovieAdd />
+      <MovieAdd movie={movie} />
       <img
         className="movieImg"
         src={movie.Poster}

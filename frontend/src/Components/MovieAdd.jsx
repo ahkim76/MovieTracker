@@ -15,8 +15,9 @@ function MovieAdd({ movie }) {
   return (
     <div>
       <button
+        className="addBtn"
         onClick={() => {
-          addMovie("tt6710474");
+          addMovie(movie.imdbID);
         }}
       >
         Add to wishlist
