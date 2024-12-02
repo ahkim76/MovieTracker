@@ -15,6 +15,7 @@ function MovieAdd({ movie }) {
   return (
     <div>
       <button
+        className="addBtn"
         onClick={() => {
           addMovie(movie.imdbID);
         }}
