@@ -5,6 +5,13 @@ function Sidebar() {
   return (
     <ul className="sidebar">
       <li>
+        <img
+          className="logo"
+          src="/MovieTracker_logo.webp"
+          alt="MovieTracker Logo"
+        />
+      </li>
+      <li>
         <NavLink to="/main">
           <span>Home</span>
         </NavLink>
