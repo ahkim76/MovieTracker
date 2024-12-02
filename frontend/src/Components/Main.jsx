@@ -3,7 +3,7 @@ import MovieWishlist from "./MovieWishlist";
 function Main() {
   return (
     <>
-        <div>Main Menu</div>
+        <h2>Movie Wishlist</h2>
         <MovieWishlist />
     </>
   );

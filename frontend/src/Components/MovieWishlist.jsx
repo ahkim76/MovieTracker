@@ -24,9 +24,10 @@ function MovieWishlist() {
   useEffect(() => {
     const getMovies = async () => {
         let movieData = [];
-        let movieIDs = localStorage.getItem("movies").split(",");
+        let movieIDs = localStorage.getItem("movies");
     
         if (movieIDs != null ) {
+            movieIDs = movieIDs.split(",");
           for (let id of movieIDs) {
             let data = await getMovie(id);
     
