@@ -1,19 +1,16 @@
 function MovieAdd({ movie }) {
-  const addMovie = async (id) => {
-    try {
-      const response = await fetch(`http://localhost:4000/movies`, {
-        method: "POST",
-        body: JSON.stringify({id}),
-        headers: {
-          "Content-Type": "application/json",
-        },
-      });
+  const addMovie = (id) => {
+    let movies = [localStorage.getItem("movies")];
 
-      console.log("Added movie with id " + id);
-    } catch (error) {
-      console.log("Error adding movie");
+    if (movies == null) {
+        movies = [];
     }
-  };
+
+    movies = [id, ...movies];
+
+    localStorage.setItem("movies", movies);
+    console.log(localStorage.getItem("movies"));
+  }
 
   return (
     <div>
