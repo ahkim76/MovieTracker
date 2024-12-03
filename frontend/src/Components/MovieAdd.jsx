@@ -2,7 +2,7 @@ function MovieAdd({ movie }) {
   const addMovie = (id) => {
     let movies = localStorage.getItem("movies");
 
-    if (movies == null) {
+    if (movies == null || movies.length == 0) {
       movies = [];
     } else {
       movies = movies.split(",");
