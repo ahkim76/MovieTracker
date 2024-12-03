@@ -26,7 +26,7 @@ function MovieWishlist() {
         let movieData = [];
         let movieIDs = localStorage.getItem("movies");
     
-        if (movieIDs != null ) {
+        if (movieIDs != null && movieIDs.length != 0) {
             movieIDs = movieIDs.split(",");
           for (let id of movieIDs) {
             let data = await getMovie(id);
