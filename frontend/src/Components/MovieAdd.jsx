@@ -5,7 +5,7 @@ function MovieAdd({ movie }) {
     if (movies == null) {
       movies = [];
     } else {
-      movies = [movies.split(",")];
+      movies = movies.split(",");
     }
     // movies = []
 

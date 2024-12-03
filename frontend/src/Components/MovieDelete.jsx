@@ -4,7 +4,7 @@ function MovieDelete({ movie }) {
     const removeMovie = (id) => {
       let movieIDs = localStorage.getItem("movies");
   
-      if (movieIDs == null) {
+      if (movieIDs == null || movieIDs.length == 0) {
         movieIDs = [];
       } else {
         movieIDs = movieIDs.split(",");
