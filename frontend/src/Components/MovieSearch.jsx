@@ -35,6 +35,7 @@ function MovieSearch() {
   }, [query]);
   return (
     <div>
+      <h2>Search for movies!</h2>
       <input
         type="text"
         placeholder="Search movies..."
