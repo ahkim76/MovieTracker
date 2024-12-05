@@ -31,9 +31,10 @@ function MovieWishlist() {
     }
 
     movieIDs = movieIDs.filter((movieID) => movieID !== id);
+    let newMovieData = movieData.filter((movie) => movie.imdbID !== id);
 
     localStorage.setItem("movies", movieIDs);
-    setMovieData(movieIDs);
+    setMovieData(newMovieData);
   };
 
   useEffect(() => {
