@@ -1,6 +1,6 @@
 import "../movies.css";
 import MovieDelete from "./MovieDelete";
-function WishlistCard({ movie }) {
+function WishlistCard({ movie, onRemove }) {
   return (
     <li className="wishlistLi" key={movie.imdbID}>
       <div className="wishlistContent">
@@ -10,7 +10,7 @@ function WishlistCard({ movie }) {
           alt={`${movie.Title} movie poster`}
         />
         <h3 className="wishlistTitle">{movie.Title}</h3>
-        <MovieDelete movie={movie} />
+        <MovieDelete movie={movie} onRemove={onRemove} />
       </div>
     </li>
   );

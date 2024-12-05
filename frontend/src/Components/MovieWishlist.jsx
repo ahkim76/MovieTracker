@@ -21,25 +21,40 @@ function MovieWishlist() {
 
   const [movieData, setMovieData] = useState([]);
 
+  const removeMovie = (id) => {
+    let movieIDs = localStorage.getItem("movies");
+
+    if (movieIDs == null || movieIDs.length === 0) {
+      movieIDs = [];
+    } else {
+      movieIDs = movieIDs.split(",");
+    }
+
+    movieIDs = movieIDs.filter((movieID) => movieID !== id);
+
+    localStorage.setItem("movies", movieIDs);
+    setMovieData(movieIDs);
+  };
+
   useEffect(() => {
     const getMovies = async () => {
-        let movieData = [];
-        let movieIDs = localStorage.getItem("movies");
-    
-        if (movieIDs != null && movieIDs.length != 0) {
-            movieIDs = movieIDs.split(",");
-          for (let id of movieIDs) {
-            let data = await getMovie(id);
-    
-            movieData.push(data);
-          }
-        }
-    
-        setMovieData(movieData);
-      };
+      let movieData = [];
+      let movieIDs = localStorage.getItem("movies");
 
-      getMovies();
-  }, []);  
+      if (movieIDs != null && movieIDs.length !== 0) {
+        movieIDs = movieIDs.split(",");
+        for (let id of movieIDs) {
+          let data = await getMovie(id);
+
+          movieData.push(data);
+        }
+      }
+
+      setMovieData(movieData);
+    };
+
+    getMovies();
+  }, []);
 
   if (movieData.length === 0) {
     return "Wishlist empty. Search for a movie to add to your wishlist!";
@@ -48,7 +63,7 @@ function MovieWishlist() {
   return (
     <ul className="wishlistParent">
       {movieData.map((movie) => (
-        <WishlistCard movie={movie} />
+        <WishlistCard movie={movie} onRemove={removeMovie} />
       ))}
     </ul>
   );
