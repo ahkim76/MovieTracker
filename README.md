@@ -18,3 +18,8 @@ MovieTracker is a full-stack web application developed as the final project for 
 - Node.js: Server-side framework.
 - Express: API routing and handling.
 - omdbAPI: 3rd party movie API
+
+
+Made by Alex Kim and Justin Mao
+
+Demo Video: https://youtu.be/4EWFM0kACVM
