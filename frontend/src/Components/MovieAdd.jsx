@@ -1,28 +1,12 @@
-function MovieAdd({ movie }) {
-  const addMovie = (id) => {
-    let movies = localStorage.getItem("movies");
-
-    if (movies == null || movies.length == 0) {
-      movies = [];
-    } else {
-      movies = movies.split(",");
-    }
-    // movies = []
-
-    movies = [id, ...movies];
-
-    localStorage.setItem("movies", movies);
-  };
-
+function MovieAdd({ movie, isSaved, addToWishlist }) {
   return (
     <div>
       <button
         className="addBtn"
-        onClick={() => {
-          addMovie(movie.imdbID);
-        }}
+        onClick={() => addToWishlist(movie.imdbID)}
+        disabled={isSaved} // Prevent re-adding
       >
-        Add to wishlist
+        {isSaved ? "Added to wishlist" : "Add to wishlist"}
       </button>
     </div>
   );
