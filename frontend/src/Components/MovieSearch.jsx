@@ -30,9 +30,39 @@ function MovieSearch() {
       console.log("Error fetching movies");
     }
   };
+
+  const inWishlist = (movie) => {
+    if (movie == null) {
+      return false;
+    }
+    
+    let movies = localStorage.getItem("movies");
+
+    if (movies == null || movies.length == 0) {
+      movies = [];
+    } else {
+      movies = movies.split(",");
+    }
+
+    let inWishlist = false;
+    if (movies.includes(movie)) {
+      inWishlist = true;
+    }
+
+    movies.forEach((id) => {
+      if (movie.imdbID == id) {
+        inWishlist = true;
+      }
+    });
+
+    return inWishlist;
+  }
+
+
   useEffect(() => {
     fetchMovies();
   }, [query]);
+  
   return (
     <div>
       <h2>Search for movies!</h2>
