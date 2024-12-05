@@ -13,7 +13,7 @@ MovieTracker is a full-stack web application developed as the final project for 
 ### Frontend:
 - React: Interactive UI components.
 - CSS: Styling for a polished user experience.
-- Local Storage: Used for storing user data, media lists, and reviews.
+- Local Storage: Used for storing user data.
 ### Backend:
 - Node.js: Server-side framework.
 - Express: API routing and handling.
