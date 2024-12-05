@@ -2,7 +2,7 @@ function MovieAdd({ movie, isSaved, addToWishlist }) {
   return (
     <div>
       <button
-        className="addBtn"
+        className={`addBtn ${isSaved ? "saved" : "new"}`}
         onClick={() => addToWishlist(movie.imdbID)}
         disabled={isSaved} // Prevent re-adding
       >
